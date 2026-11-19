@@ -3,28 +3,301 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>vibeBMS</title>
-<style>
-  :root { color-scheme: dark light; }
-  body { margin: 0; min-height: 100vh; display: grid; place-items: center; font-family: system-ui, sans-serif;
-         background: #0d1117; color: #e6edf3; }
-  @media (prefers-color-scheme: light) { body { background: #f6f8fa; color: #1f2328; } }
-  main { padding: 24px; text-align: center; }
-  h1 { margin: 0 0 8px; }
-  a { color: #2dd4bf; }
-  ul { list-style: none; padding: 0; line-height: 2; }
-</style>
+<title>vibeBMS: a cross-platform BMS player</title>
+<meta name="description" content="vibeBMS is a cross-platform BMS player written in Rust. Play it in your browser, or get nightly builds for Windows, macOS, Linux, Android and iOS.">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0b0d14" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f4f6f9" media="(prefers-color-scheme: light)">
+<link rel="icon" href="img/icon.svg" type="image/svg+xml">
+<link rel="icon" href="img/icon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<!-- Open Graph: og:image must be an absolute URL for most crawlers; see README.md -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="vibeBMS">
+<meta property="og:title" content="vibeBMS: a cross-platform BMS player">
+<meta property="og:description" content="Play BMS in your browser, or get nightly builds for Windows, macOS, Linux, Android and iOS.">
+<meta property="og:image" content="img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The vibeBMS logo beside its song select screen">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="site.css">
+<script src="site.js" defer></script>
 </head>
 <body>
-<main>
-  <h1>vibeBMS</h1>
-  <p>A cross-platform BMS player. The full page is on its way.</p>
-  <ul>
-    <li><a href="/vibe/">Play in the browser</a></li>
-    <li><a href="https://github.com/vibeBMS/vibe/releases/tag/nightly">Downloads (nightly)</a></li>
-    <li><a href="/BMSeeker/">BMSeeker</a> — BMS downloader</li>
-    <li><a href="https://github.com/vibeBMS">GitHub</a></li>
-  </ul>
+<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="#top" aria-label="vibeBMS">
+      <img src="img/icon.svg" alt="" width="28" height="28">
+      <span>vibeBMS</span>
+    </a>
+    <nav class="nav" aria-label="Sections" data-i18n-attr="aria-label:navLabel">
+      <a href="#features" data-i18n="navFeatures">Features</a>
+      <a href="#screenshots" data-i18n="navShots">Screenshots</a>
+      <a href="#download" data-i18n="navDownload">Download</a>
+      <a href="#projects" data-i18n="navProjects">Projects</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language" data-i18n-attr="aria-label:langLabel">
+      <button type="button" data-lang="en" lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="ko" lang="ko" aria-pressed="false">한국어</button>
+      <button type="button" data-lang="ja" lang="ja" aria-pressed="false">日本語</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="wrap">
+    <h1 class="logo">
+      <picture>
+        <source srcset="img/logo-light.svg" media="(prefers-color-scheme: light)">
+        <img src="img/logo-dark.svg" alt="vibeBMS" width="383" height="120">
+      </picture>
+    </h1>
+    <p class="tagline" data-i18n="tagline">A cross-platform BMS player for Windows, macOS, Linux, Android, iOS and the web.</p>
+    <p class="status"><span class="pill" data-i18n="status">Early development (0.1)</span> <span data-i18n="statusNote">Builds of the latest commit, published every night.</span></p>
+    <div class="cta">
+      <a class="btn primary" href="/vibe/">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+        <span data-i18n="playBrowser">Play in browser</span>
+      </a>
+      <a class="btn" id="hero-dl" href="#download">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M12 3v11m0 0-4.5-4.5M12 14l4.5-4.5M4 17v3h16v-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span><span id="hero-dl-label" data-i18n="download">Download</span><small id="hero-dl-sub"></small></span>
+      </a>
+    </div>
+    <p class="cta-more"><a href="#download" id="hero-other" data-i18n="allPlatforms">All platforms and files</a></p>
+
+    <aside class="seeker-card" aria-labelledby="seeker-hero-title">
+      <div>
+        <h2 id="seeker-hero-title"><span class="kicker" data-i18n="alsoKicker">Also from vibeBMS</span> BMSeeker</h2>
+        <p data-i18n="seekerShort">Finds and downloads the songs a difficulty table lists that your library lacks, and puts separate charts into their songs' folders.</p>
+      </div>
+      <div class="seeker-actions">
+        <a class="btn small" href="/BMSeeker/" data-i18n="openBrowser">Open in browser</a>
+        <a class="btn small ghost" href="#bmseeker" data-i18n="moreInfo">Downloads and details</a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section id="features" class="section">
+  <div class="wrap">
+    <h2 data-i18n="featuresTitle">Features</h2>
+    <p class="lead" data-i18n="featuresLead">Modelled on Lunatic Rave 2 and beatoraja. Still early (0.1): expect rough edges and changes.</p>
+    <ul class="features">
+      <li><h3 data-i18n="f1t">Runs almost anywhere</h3><p data-i18n="f1">Windows, macOS and Linux (x64 and ARM), Android, iOS and web browsers (wasm), with an on-screen controller for phones and tablets.</p></li>
+      <li><h3 data-i18n="f2t">BMS and BMSON charts</h3><p data-i18n="f2">BMS/BME/BML/PMS and BMSON: 5, 7, 10, 14 and 9 keys, plus 4, 6 and 8 keys; #RANDOM, BPM changes, STOP, #SCROLL, LN and mines.</p></li>
+      <li><h3 data-i18n="f3t">Familiar judging</h3><p data-i18n="f3">beatoraja, LR2 and IIDX judge presets or your own windows; gauges from ASSIST EASY to HAZARD; RANDOM options, hi-speed types and lane covers.</p></li>
+      <li><h3 data-i18n="f4t">Skins</h3><p data-i18n="f4">Built-in default skins for landscape and portrait, a touch perspective skin, and LR2 (.lr2skin) and beatoraja (JSON, Lua) skins.</p></li>
+      <li><h3 data-i18n="f5t">Difficulty tables and downloads</h3><p data-i18n="f5">bmstable difficulty tables, with the common ones built in; a chart you lack can be downloaded from the links its author and the tables give.</p></li>
+      <li><h3 data-i18n="f6t">Songs in archives</h3><p data-i18n="f6">.zip, .7z, .rar, .lzh and .tar song packs are played without unpacking them yourself.</p></li>
+      <li><h3 data-i18n="f7t">Practice, replays and ghosts</h3><p data-i18n="f7">A practice screen per chart, a replay of every play, G-BATTLE against your own best, courses, and IR rankings.</p></li>
+      <li><h3 data-i18n="f8t">No launcher, portable</h3><p data-i18n="f8">It starts at song select and every setting is changed in the game; data lives next to the executable. English, Korean, Japanese and Chinese UI.</p></li>
+    </ul>
+    <p class="made" data-i18n="vibeNote">The "vibe" is the music's, and the way it is made: nearly all of the code and the default skins were written with an AI coding agent (Claude Code), while a person set the direction and checked the results by playing.</p>
+  </div>
+</section>
+
+<section id="screenshots" class="section">
+  <div class="wrap">
+    <h2 data-i18n="shotsTitle">Screenshots</h2>
+    <div class="carousel" role="region" aria-roledescription="carousel" aria-label="Screenshots" data-i18n-attr="aria-label:shotsTitle;aria-roledescription:carouselRole">
+      <div class="slides" id="slides" aria-live="polite">
+        <figure class="slide" role="group" aria-roledescription="slide" data-i18n-attr="aria-roledescription:slideRole">
+          <img src="img/shot-select.webp" width="1280" height="720" data-i18n-attr="alt:s1alt" alt="Song select with the default skin: a list of test charts and the chosen chart's details" decoding="async">
+          <figcaption data-i18n="s1">Song select</figcaption>
+        </figure>
+        <figure class="slide" role="group" aria-roledescription="slide" data-i18n-attr="aria-roledescription:slideRole">
+          <img src="img/shot-play.webp" width="1280" height="720" data-i18n-attr="alt:s2alt" alt="Playing a 7-key chart (single play) with the default skin" loading="lazy" decoding="async">
+          <figcaption data-i18n="s2">Play (7 keys, single play)</figcaption>
+        </figure>
+        <figure class="slide" role="group" aria-roledescription="slide" data-i18n-attr="aria-roledescription:slideRole">
+          <img src="img/shot-result.webp" width="1280" height="720" data-i18n-attr="alt:s3alt" alt="The result screen: clear type, DJ level, score, judgements and graphs" loading="lazy" decoding="async">
+          <figcaption data-i18n="s3">Result</figcaption>
+        </figure>
+        <figure class="slide" role="group" aria-roledescription="slide" data-i18n-attr="aria-roledescription:slideRole">
+          <img src="img/shot-touch.webp" width="1280" height="720" data-i18n-attr="alt:s4alt" alt="The touch perspective skin on a phone, in portrait and in landscape, with the touch zones faintly shown" loading="lazy" decoding="async">
+          <figcaption data-i18n="s4">Touch perspective skin (phone, portrait and landscape)</figcaption>
+        </figure>
+        <figure class="slide" role="group" aria-roledescription="slide" data-i18n-attr="aria-roledescription:slideRole">
+          <img src="img/shot-settings.webp" width="1280" height="720" data-i18n-attr="alt:s5alt" alt="The settings screen: gameplay, controls, display and audio, skins, library, courses, online and system" loading="lazy" decoding="async">
+          <figcaption data-i18n="s5">Settings, all in the game</figcaption>
+        </figure>
+      </div>
+      <div class="car-ctl">
+        <button type="button" class="car-btn" id="car-prev" aria-controls="slides" aria-label="Previous screenshot" data-i18n-attr="aria-label:prev">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="dots" id="car-dots"></div>
+        <button type="button" class="car-btn" id="car-next" aria-controls="slides" aria-label="Next screenshot" data-i18n-attr="aria-label:next">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <p class="note center" data-i18n="shotsNote">Shown with generated test charts and the built-in default skins.</p>
+    </div>
+  </div>
+</section>
+
+<section id="download" class="section">
+  <div class="wrap">
+    <h2 data-i18n="dlTitle">Download</h2>
+    <p class="lead"><span data-i18n="dlLead">Nightly builds of the latest commit. They are development builds: settings and records may change between them.</span></p>
+    <p class="build-info" id="build-info" aria-live="polite">
+      <span id="build-text"></span>
+      <a href="https://github.com/vibeBMS/vibe/releases/tag/nightly" data-i18n="releaseNotes">Release notes and all files</a>
+    </p>
+
+    <div class="cards" id="dl-cards">
+      <article class="card" id="dl-windows" data-os="windows">
+        <h3>Windows</h3>
+        <div class="files">
+          <a class="btn file" data-asset="vibebms-windows-x64.exe" data-arch="x64" href="https://github.com/vibeBMS/vibe/releases/download/nightly/vibebms-windows-x64.exe">x64 <small>.exe</small></a>
+          <a class="btn file" data-asset="vibebms-windows-arm64.exe" data-arch="arm64" href="https://github.com/vibeBMS/vibe/releases/download/nightly/vibebms-windows-arm64.exe">ARM64 <small>.exe</small></a>
+        </div>
+        <p class="hint" data-i18n="hWin">One executable: put it in a folder with your BMS folders inside and run it. It checks for a newer nightly when it starts.</p>
+      </article>
+
+      <article class="card" id="dl-macos" data-os="macos">
+        <h3>macOS</h3>
+        <div class="files">
+          <a class="btn file" data-asset="vibeBMS-macos-universal.dmg" href="https://github.com/vibeBMS/vibe/releases/download/nightly/vibeBMS-macos-universal.dmg"><span data-i18n="macApp">App</span> <small>.dmg · Apple silicon + Intel</small></a>
+        </div>
+        <p class="hint" data-i18n-html="hMac">Drag the app to Applications. It is not notarized: open it the first time with right-click → Open, or in System Settings → Privacy &amp; Security → Open Anyway.</p>
+        <details class="more">
+          <summary data-i18n="otherFiles">Other files</summary>
+          <ul class="filelist">
+            <li><a data-asset="vibebms-macos-arm64" href="https://github.com/vibeBMS/vibe/releases/download/nightly/vibebms-macos-arm64">vibebms-macos-arm64</a></li>
+            <li><a data-asset="vibebms-macos-x64" href="https://github.com/vibeBMS/vibe/releases/download/nightly/vibebms-macos-x64">vibebms-macos-x64</a></li>
+            <li><a data-asset="vibebms-macos-universal.app.zip" href="https://github.com/vibeBMS/vibe/releases/download/nightly/vibebms-macos-universal.app.zip">vibebms-macos-universal.app.zip</a></li>
+          </ul>
+          <p class="hint" data-i18n-html="hMacExe">Executables: <code>chmod +x vibebms-*</code> and <code>xattr -d com.apple.quarantine vibebms-*</code>.</p>
+        </details>
+      </article>
+
+      <article class="card" id="dl-linux" data-os="linux">
+        <h3>Linux</h3>
+        <div class="files">
+          <a class="btn file" data-asset="vibebms-linux-x64" data-arch="x64" href="https://github.com/vibeBMS/vibe/releases/download/nightly/vibebms-linux-x64">x64</a>
+          <a class="btn file" data-asset="vibebms-linux-arm64" data-arch="arm64" href="https://github.com/vibeBMS/vibe/releases/download/nightly/vibebms-linux-arm64">ARM64</a>
+        </div>
+        <p class="hint" data-i18n-html="hLinux"><code>chmod +x vibebms-*</code>. Needs glibc 2.35 and WebKitGTK 4.1 (<code>libwebkit2gtk-4.1-0</code>, for the download browser).</p>
+        <details class="more">
+          <summary data-i18n="portableFlatpak">Portable and Flatpak</summary>
+          <ul class="filelist">
+            <li><a data-asset="vibebms-linux-x64-portable" href="https://github.com/vibeBMS/vibe/releases/download/nightly/vibebms-linux-x64-portable">vibebms-linux-x64-portable</a></li>
+            <li><a data-asset="vibebms-linux-arm64-portable" href="https://github.com/vibeBMS/vibe/releases/download/nightly/vibebms-linux-arm64-portable">vibebms-linux-arm64-portable</a></li>
+          </ul>
+          <p class="hint" data-i18n="hPortable">Portable: starts with glibc 2.28 and ALSA, without the download browser.</p>
+          <ul class="filelist">
+            <li><a data-asset="vibeBMS-linux-x64.flatpak" href="https://github.com/vibeBMS/vibe/releases/download/nightly/vibeBMS-linux-x64.flatpak">vibeBMS-linux-x64.flatpak</a></li>
+            <li><a data-asset="vibeBMS-linux-arm64.flatpak" href="https://github.com/vibeBMS/vibe/releases/download/nightly/vibeBMS-linux-arm64.flatpak">vibeBMS-linux-arm64.flatpak</a></li>
+          </ul>
+          <p class="hint" data-i18n-html="hFlatpak"><code>flatpak install --user vibeBMS-linux-x64.flatpak</code> (the runtime comes from Flathub). It does not update itself: install a newer bundle the same way.</p>
+        </details>
+      </article>
+
+      <article class="card" id="dl-android" data-os="android">
+        <h3>Android</h3>
+        <div class="files">
+          <a class="btn file" data-asset="vibeBMS.apk" href="https://github.com/vibeBMS/vibe/releases/download/nightly/vibeBMS.apk">APK <small>.apk</small></a>
+        </div>
+        <p class="hint" data-i18n="hAndroid">Download the APK and install it (Android asks to allow installs from your browser or file manager).</p>
+        <div class="fdroid" id="fdroid" hidden>
+          <p class="hint"><strong data-i18n="fdroidTitle">Updates through F-Droid</strong> <span data-i18n="fdroidText">Add this repository once in F-Droid, Droid-ify or Neo Store, and each nightly is offered as an update of “vibeBMS Nightly”:</span></p>
+          <div class="copyrow">
+            <code id="fdroid-url">https://raw.githubusercontent.com/vibeBMS/vibe/fdroid-repo/repo</code>
+            <button type="button" class="btn small ghost copy" data-copy="fdroid-url" data-i18n="copy">Copy</button>
+          </div>
+          <p class="hint" data-i18n-html="fdroidFp">Its fingerprint and a one-tap link are in <a href="https://github.com/vibeBMS/vibe/releases/download/nightly/fdroid.txt">fdroid.txt</a>.</p>
+          <img id="fdroid-qr" hidden width="160" height="160" alt="QR code that adds the F-Droid repository" data-i18n-attr="alt:fdroidQrAlt" loading="lazy">
+        </div>
+      </article>
+
+      <article class="card" id="dl-ios" data-os="ios">
+        <h3>iOS / iPadOS</h3>
+        <div class="files">
+          <a class="btn file" data-asset="vibeBMS-unsigned.ipa" href="https://github.com/vibeBMS/vibe/releases/download/nightly/vibeBMS-unsigned.ipa">IPA <small data-i18n="unsigned">unsigned</small></a>
+        </div>
+        <p class="hint" data-i18n="hIos">Unsigned: sideload it, e.g. with AltStore, SideStore or LiveContainer. For updates, add the source in AltStore or SideStore:</p>
+        <div class="copyrow">
+          <code id="altstore-url">https://github.com/vibeBMS/vibe/releases/download/nightly/altstore.json</code>
+          <button type="button" class="btn small ghost copy" data-copy="altstore-url" data-i18n="copy">Copy</button>
+        </div>
+        <p><a class="btn small" id="altstore-add" href="altstore://source?url=https%3A%2F%2Fgithub.com%2FvibeBMS%2Fvibe%2Freleases%2Fdownload%2Fnightly%2Faltstore.json" data-i18n="addAltstore">Add to AltStore</a></p>
+      </article>
+
+      <article class="card" id="dl-web" data-os="web">
+        <h3 data-i18n="webTitle">Web browser</h3>
+        <div class="files">
+          <a class="btn file primary-file" href="/vibe/" data-i18n="playBrowser">Play in browser</a>
+          <a class="btn file" data-asset="vibeBMS-web.zip" href="https://github.com/vibeBMS/vibe/releases/download/nightly/vibeBMS-web.zip">.zip</a>
+        </div>
+        <p class="hint" data-i18n="hWeb">Songs you add stay in the browser; nothing is uploaded. The zip: unzip it and serve the folder over HTTP(S).</p>
+      </article>
+    </div>
+
+    <p class="note" data-i18n-html="buildYourself">Or build it yourself: <code>cargo run --release</code> (see <a href="https://github.com/vibeBMS/vibe/blob/main/docs/BUILDING.md">docs/BUILDING.md</a>).</p>
+  </div>
+</section>
+
+<section id="projects" class="section">
+  <div class="wrap">
+    <h2 data-i18n="projectsTitle">Projects</h2>
+    <div class="projects">
+      <article class="proj">
+        <h3><a href="https://github.com/vibeBMS/vibe">vibe</a></h3>
+        <p data-i18n="pVibe">The BMS player (Rust, wgpu, cpal).</p>
+        <p class="links"><a href="/vibe/" data-i18n="playBrowser">Play in browser</a> · <a href="https://github.com/vibeBMS/vibe" data-i18n="source">Source</a> · <a href="https://github.com/vibeBMS/vibe/issues" data-i18n="issues">Issues</a></p>
+      </article>
+      <article class="proj" id="bmseeker">
+        <h3><a href="https://github.com/vibeBMS/BMSeeker">BMSeeker</a></h3>
+        <p data-i18n-html="pSeeker">A BMS library tool: it reads difficulty tables, downloads the songs your library lacks from the links their authors and the tables give, unpacks them, and puts separate charts (差分) into their songs' folders. vibe uses it as a library; it also comes as a window (Go), a command-line tool and a web page.</p>
+        <p class="links"><a href="/BMSeeker/" data-i18n="openBrowser">Open in browser</a> · <a href="https://github.com/vibeBMS/BMSeeker" data-i18n="source">Source</a> · <a href="https://github.com/vibeBMS/BMSeeker/issues" data-i18n="issues">Issues</a></p>
+        <p class="build-info small" id="seeker-info" aria-live="polite"></p>
+        <div class="seeker-files">
+          <div>
+            <h4 data-i18n="seekerGui">Window (with the command-line tool inside)</h4>
+            <ul class="filelist">
+              <li><a data-sasset="bmseeker-gui-windows-x64.exe" href="https://github.com/vibeBMS/BMSeeker/releases/download/nightly/bmseeker-gui-windows-x64.exe">Windows x64</a></li>
+              <li><a data-sasset="bmseeker-gui-windows-arm64.exe" href="https://github.com/vibeBMS/BMSeeker/releases/download/nightly/bmseeker-gui-windows-arm64.exe">Windows ARM64</a></li>
+              <li><a data-sasset="bmseeker-gui-macos-universal" href="https://github.com/vibeBMS/BMSeeker/releases/download/nightly/bmseeker-gui-macos-universal">macOS (universal)</a></li>
+              <li><a data-sasset="bmseeker-gui-linux-x64" href="https://github.com/vibeBMS/BMSeeker/releases/download/nightly/bmseeker-gui-linux-x64">Linux x64</a></li>
+              <li><a data-sasset="bmseeker-gui-linux-arm64" href="https://github.com/vibeBMS/BMSeeker/releases/download/nightly/bmseeker-gui-linux-arm64">Linux ARM64</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 data-i18n="seekerCli">Command-line tool</h4>
+            <ul class="filelist">
+              <li><a data-sasset="bmseeker-windows-x64.exe" href="https://github.com/vibeBMS/BMSeeker/releases/download/nightly/bmseeker-windows-x64.exe">Windows x64</a></li>
+              <li><a data-sasset="bmseeker-windows-arm64.exe" href="https://github.com/vibeBMS/BMSeeker/releases/download/nightly/bmseeker-windows-arm64.exe">Windows ARM64</a></li>
+              <li><a data-sasset="bmseeker-macos-universal" href="https://github.com/vibeBMS/BMSeeker/releases/download/nightly/bmseeker-macos-universal">macOS (universal)</a></li>
+              <li><a data-sasset="bmseeker-linux-x64" href="https://github.com/vibeBMS/BMSeeker/releases/download/nightly/bmseeker-linux-x64">Linux x64</a></li>
+              <li><a data-sasset="bmseeker-linux-arm64" href="https://github.com/vibeBMS/BMSeeker/releases/download/nightly/bmseeker-linux-arm64">Linux ARM64</a></li>
+            </ul>
+          </div>
+        </div>
+        <p class="hint" data-i18n-html="hSeeker">Linux / macOS: <code>chmod +x bmseeker-*</code>; on macOS also <code>xattr -d com.apple.quarantine bmseeker-*</code>. Linux needs glibc 2.35. Web build: <a href="https://github.com/vibeBMS/BMSeeker/releases/download/nightly/bmseeker-web.zip">bmseeker-web.zip</a>.</p>
+        <p class="hint" data-i18n-html="seekerDisclaimer">Before turning on third-party sources, read <a href="https://github.com/vibeBMS/BMSeeker#third-party-sources-and-disclaimer">Third-party sources and disclaimer</a>.</p>
+      </article>
+      <article class="proj">
+        <h3><a href="https://github.com/vibeBMS/BMS">BMS</a></h3>
+        <p data-i18n="pBms">The BMS event mirror: event entries kept so they stay downloadable after the links posted during the event go away, each archive as its author published it.</p>
+        <p class="links"><a href="https://github.com/vibeBMS/BMS" data-i18n="source">Source</a> · <a href="https://github.com/vibeBMS/BMS/issues" data-i18n="issues">Issues</a></p>
+      </article>
+    </div>
+  </div>
+</section>
 </main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p data-i18n-html="footPolicy">vibeBMS hosts no songs or charts and is not affiliated with the sites songs are downloaded from. Where downloads come from and how BMSeeker treats those sites: <a href="https://github.com/vibeBMS/BMSeeker#third-party-sources-and-disclaimer">Third-party sources and disclaimer</a>.</p>
+    <p data-i18n-html="footOptOut">Site operators who want BMSeeker not to use their site, or to use it differently, and authors who want a work removed from the event mirror, can say so in the issue trackers: <a href="https://github.com/vibeBMS/BMSeeker/issues">BMSeeker</a>, <a href="https://github.com/vibeBMS/vibe/issues">vibe</a>, <a href="https://github.com/vibeBMS/BMS/issues">BMS</a>.</p>
+    <p data-i18n-html="footLicense">vibe and BMSeeker are licensed under MIT OR Apache-2.0. <a href="https://github.com/vibeBMS">github.com/vibeBMS</a></p>
+  </div>
+</footer>
 </body>
 </html>
